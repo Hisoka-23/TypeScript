@@ -48,3 +48,42 @@ console.log(calculateTotal(cart));
 
 //4. Define a union type for a Vehicale that can either be Car or Bike with different properties.
 //Write a function to log details based on the vehicle type.
+
+type carData = {
+  type: 'car';
+  make: string;
+  model: string;
+  year: number;
+};
+
+type bikeData = {
+  type: 'bike';
+  brand: string;
+  cc: number;
+};
+
+type VehicleData = bikeData | carData;
+
+function getVehicleDetails(vehicle: VehicleData){
+  if(vehicle.type == 'car'){
+    console.log(`Car: ${vehicle.make}, ${vehicle.model}, ${vehicle.year}`);
+  } else{
+    console.log(`Bike : ${vehicle.brand}, CC: ${vehicle.cc}`);
+  }
+}
+
+let myCarData: VehicleData = {
+  type: 'car',
+  make: 'Tesla',
+  model: 'Model 1',
+  year: 2024
+}
+
+let myBikeData : VehicleData = {
+  type: 'bike',
+  brand: 'hero',
+  cc: 250
+}
+
+getVehicleDetails(myCarData);
+getVehicleDetails(myBikeData);
